@@ -1,3 +1,7 @@
+
+[Visit the Project Website](https://humorous-successes-384092.framer.app/)
+
+
 # **Project Overview:**
 **"Vision Empower"** is a groundbreaking initiative designed to address the multifaceted challenges faced by visually impaired individuals. This project leverages cutting-edge technology to provide real-time object detection, spatial awareness, and voice-guided navigation in a compact, wearable format. By integrating additional features such as maps for navigation, weather updates, news headlines, live tracking, and emergency contact alerts, the system offers a comprehensive solution that enhances both the safety and independence of visually impaired users.
 
