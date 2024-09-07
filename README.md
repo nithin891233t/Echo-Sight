@@ -23,29 +23,6 @@
 - Allow users to customize alerts, adjust sensitivity settings, and tailor the device to their preferences.
 - Design a wearable device that is comfortable, hands-free, and suitable for long-term use.
 
-## **Key Components:**
-
-### **1. Glasses with Camera:**
-- A discreet camera mounted on the glasses captures the user's surroundings continuously.
-
-### **2. Fine-Tuned YOLOv8 Model:**
-- A state-of-the-art object detection algorithm processes real-time video data to identify and classify objects.
-
-### **3. Raspberry Pi 4:**
-- Acts as the central processing unit, handling object detection and data management.
-
-### **4. Bluetooth Earbuds:**
-- Deliver real-time voice feedback to the user, providing audio descriptions of detected objects, navigation instructions, and more.
-
-### **5. Maps and Navigation System:**
-- Integrated maps offer voice-guided navigation, ensuring users reach their destinations safely.
-
-### **6. Weather Updates and News Headlines:**
-- Real-time weather updates help users plan their day, and news headlines keep them informed.
-
-### **7. Live Tracking and Emergency Alerts:**
-- Enables real-time location tracking and emergency alerts to provide additional safety and security.
-
 ## **How It Works:**
 
 ### **1. Real-Time Object Detection:**
