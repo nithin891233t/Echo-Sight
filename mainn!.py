@@ -5,7 +5,6 @@ import time
 import os
 from ultralytics import YOLO
 import cvzone
-from cvzone.FaceMeshModule import FaceMeshDetector
 import pyttsx3
 import mysql.connector
 import requests
