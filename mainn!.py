@@ -27,15 +27,16 @@ cursor = conn.cursor()
 api_key = "API_KEY"
 project_name = "PROJECT_NAME"
 version = "0"
-model_path = "yolov8s.pt"
-video_path =  "ADD PATH"       #r"C:\Users\nithi\Downloads\Walking in Chennai (India).mp4"
-focal_length = 840                            # Replace with actual focal length of your camera
-object_real_width = 6.3                       # Average width of object in cm
-
 # Initialize Roboflow and YOLO models
 rf = Roboflow(api_key=api_key)
 project = rf.workspace().project(project_name)
 model_rf = project.version(version).model
+
+
+model_path = "yolov8s.pt"
+video_path =  "ADD PATH"       #r"C:\Users\nithi\Downloads\Walking in Chennai (India).mp4"
+focal_length = 840                            # Replace with actual focal length of your camera
+object_real_width = 6.3                       # Average width of object in cm
 
 model_yolo = YOLO(model_path)
 class ObjectDetection:
@@ -79,7 +80,7 @@ class ObjectDetection:
                 engine.say(f"There is a {class_name} in front of you at {distance:.2f} meters.")
                 engine.runAndWait()
 
-    def insert_object_into_db(self, cursor, conn, class_name, confidence, direction, angle, distance):
+    def insert_object_into_db(self, cursor, conn, class_name, confidence, direction, angle, distance):             #Database connection 
         timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         query = '''
         INSERT INTO detections (class_name, confidence, direction, angle, distance, timestamp)
@@ -121,7 +122,8 @@ class ObjectDetection:
             return float('inf')
         return (self.object_real_width * self.focal_length) / width_pixels
 
-    def get_ip_location(self):
+    def get_ip_location(self):                                                                          # will be changed to google maps api
+                                                                                                        # Still Testing
         try:
             response_ip = requests.get('https://api.ipify.org?format=json')
             current_ip = response_ip.json()['ip']
@@ -181,14 +183,6 @@ class ObjectDetection:
                     self.insert_location_into_db(cursor, conn, latitude, longitude)
                 last_time = current_time
 
-            # Face distance estimation
-            img, faces = self.detector.findFaceMesh(frame, draw=False)
-            if faces:
-                face = faces[0]
-                point_left = face[145]
-                point_right = face[374]
-                distance = self.estimate_distance(self.detector.findDistance(point_left, point_right)[0])
-                cvzone.putTextRect(img, f'Depth: {int(distance)}cm', (face[10][0] - 100, face[10][1] - 50), scale=2)
 
             # Save annotated frame
             annotated_frame = results_yolo[0].plot()
